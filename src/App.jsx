@@ -1,6 +1,6 @@
 // Importamos React para poder usar JSX y el hook 'useState' para manejar el estado del componente.
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'; // Nuevo: Importar Router
+import { HashRouter, Routes, Route } from 'react-router-dom'; // Cambiado a HashRouter
 
 // Importamos los estilos globales de la aplicación
 import "./App.css";
@@ -35,14 +35,14 @@ function App() {
 
   // --- RENDERIZADO DEL COMPONENTE PRINCIPAL (JSX) ---
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         {/* Ruta para la aplicación principal */}
         <Route path="/" element={<MainContent theme={theme} setTheme={setTheme} />} />
         {/* Ruta para la página de documentación */}
         <Route path="/docs" element={<DocsPage theme={theme} />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

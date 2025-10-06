@@ -174,7 +174,7 @@ function MainContent({ theme, setTheme }) { // Recibe theme y setTheme como prop
 
       return newFormats;
     });
-  }, [setMessage]); // Dependencias de useCallback
+  }, [setMessage, setIsLinkModalOpen, setCurrentUrl]); // Dependencias de useCallback
 
   // Manejador para guardar la URL del modal de enlace
   const handleSetLink = () => {
