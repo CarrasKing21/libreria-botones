@@ -1,0 +1,95 @@
+.accordion {
+  width: 80%;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden; /* Clave para la animación de max-height */
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.accordion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  width: 100%; /* Asegura que el botón ocupe todo el ancho */
+  user-select: none; /* Evita que el texto se seleccione al hacer doble clic */
+  transition: background-color 0.3s ease;
+}
+
+.accordion-title {
+  font-weight: bold;
+}
+
+.accordion-icon {
+  transition: transform 0.3s ease;
+}
+
+.theme-dark .accordion-icon { color: #e2e8f0; }
+.theme-light .accordion-icon { color: #495057; }
+
+.accordion-icon.open {
+  transform: rotate(180deg);
+}
+
+.accordion-content {
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+.accordion-content-inner {
+  padding: 15px;
+}
+
+/* --- Temas --- */
+.theme-dark .accordion {
+  border: 1px solid #4a5568;
+  background-color: #2d3748;
+}
+.theme-dark .accordion-header {
+  background-color: #4a5568;
+  border-bottom: 1px solid #2d3748;
+}
+.theme-dark .accordion-header:hover {
+  background-color: #718096;
+}
+.theme-dark .accordion-title { color: #e2e8f0; }
+.theme-dark .accordion-content-inner {
+  border-top: 1px solid #4a5568;
+  background-color: #2d3748;
+}
+
+.theme-light .accordion {
+  border: 1px solid #dee2e6;
+  background-color: #ffffff;
+}
+.theme-light .accordion-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+}
+.theme-light .accordion-header:hover {
+  background-color: #e9ecef;
+}
+.theme-light .accordion-title { color: #212529; }
+.theme-light .accordion-content-inner {
+  border-top: 1px solid #e9ecef;
+  background-color: #ffffff;
+}
+
+/* Selecciona cualquier .accordion que esté dentro de otro .accordion */
+.accordion .accordion {
+  width: 100%; /* Ocupa todo el ancho del contenedor padre */
+  border: none; /* Sin borde para un look más limpio */
+  border-radius: 4px; /* Bordes menos redondeados */
+}
+
+.theme-dark .accordion .accordion { background-color: #1a202c; }
+.theme-light .accordion .accordion { background-color: #f8f9fa; }
+
+/* Cambia el color de la cabecera del acordeón anidado */
+.accordion .accordion .accordion-header {
+  border-bottom: none;
+}
+
+.theme-dark .accordion .accordion .accordion-header { background-color: #2d3748; }
+.theme-light .accordion .accordion .accordion-header { background-color: #e9ecef; }

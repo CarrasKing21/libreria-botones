@@ -1,0 +1,391 @@
+/* Contenedor principal centrado vertical y horizontal */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start; /* Un gris oscuro azulado, muy moderno */
+  padding: 20px;
+  font-family: sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+.theme-dark {
+  background-color: #1a202c;
+  --text-color: #0a0a0a; /* Color de texto general para tema oscuro */
+  --text-color-secondary: #ffffff; /* Color para texto secundario/descriptivo */
+}
+.theme-light {
+  background-color: #e9ecef;
+  --text-color: #212529; /* Color de texto general para tema claro */
+  --text-color-secondary: #6c757d; /* Color para texto secundario/descriptivo */
+}
+
+
+/* Barra superior */
+.top-bar {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Crear item */
+.create-container {
+  display: flex;
+  gap: 5px;
+}
+
+.theme-dark .create-container input,
+.theme-dark .search-loading input,
+.theme-dark .settings-form input,
+.theme-dark .settings-form select {
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+  color: #ffffff; /* Asegura que el texto sea claro */
+}
+
+.theme-light .create-container input,
+.theme-light .search-loading input,
+.theme-light .settings-form input,
+.theme-light .settings-form select {
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  color: #495057;
+}
+
+.create-container input,
+.search-loading input,
+.settings-form input,
+.settings-form select {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Buscar y recargar */
+.search-loading {
+  display: flex;
+  gap: 10px;
+}
+
+/* Mensaje */
+.message {
+  margin-bottom: 10px;
+  font-weight: bold;
+  min-height: 21px; /* Evita que el layout salte cuando el mensaje aparece/desaparece */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.message.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.theme-dark .message {
+  color: #e2e8f0;
+}
+.theme-light .message {
+  color: #212529;
+}
+
+/* Tabla de items */
+.table-container {
+  width: 80%;
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: fadeIn 0.5s ease-out;
+  transition: background-color 0.3s ease, border 0.3s ease;
+}
+
+.theme-dark .table-container {
+  background-color: #2d3748;
+  border: 1px solid #4a5568;
+}
+.theme-light .table-container {
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* Fila de item */
+.table-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+}
+
+.theme-dark .table-row {
+  border-bottom: 1px solid #4a5568;
+}
+.theme-light .table-row {
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Nombre de item */
+.item-name {
+  width: 120px;
+  color: var(--text-color); /* Usa la variable de color del tema */
+}
+
+/* Paginación */
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagination button,
+.pagination span {
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.theme-dark .pagination button,
+.theme-dark .pagination span {
+  border: 1px solid #4a5568;
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+.theme-light .pagination button,
+.theme-light .pagination span {
+  border: 1px solid #dee2e6;
+  background-color: #ffffff;
+  color: #495057;
+}
+
+.theme-dark .pagination button:not(:disabled):hover {
+  background-color: #4a5568;
+}
+.theme-light .pagination button:not(:disabled):hover {
+  background-color: #e9ecef;
+}
+
+.pagination button:disabled {
+  cursor: not-allowed;
+}
+
+.theme-dark .pagination button:disabled {
+  color: #718096; /* Color de texto más apagado */
+}
+
+.theme-light .pagination button:disabled {
+  background-color: #e9ecef; /* Fondo grisáceo */
+  color: #adb5bd; /* Color de texto más apagado */
+}
+
+.favourite-button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 3px;
+  transition: transform 0.2s ease;
+}
+
+.favourite-button:hover {
+  transform: scale(1.2);
+}
+
+.favourite-button svg {
+  color: #ccc; /* inactivo gris */
+}
+
+.favourite-button.active svg {
+  color: gold; /* activo amarillo */
+  animation: star-pop 0.3s ease;
+}
+
+
+@keyframes star-pop {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Galería de botones en el acordeón */
+.button-gallery {
+  padding: 15px;
+  text-align: center;
+}
+
+.button-gallery p {
+  margin-bottom: 15px;
+}
+
+.theme-dark .button-gallery p { color: #a0aec0; }
+.theme-light .button-gallery p { color: #6c757d; }
+
+.gallery-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Estilos para mostrar la información del archivo subido */
+.file-info {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.theme-dark .file-info { background-color: #4a5568; }
+.theme-light .file-info { background-color: #e9ecef; }
+
+.file-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px; /* Evita que nombres de archivo muy largos rompan el diseño */
+}
+
+.theme-dark .file-name { color: #e2e8f0; }
+.theme-light .file-name { color: #495057; }
+
+/* Estilos para el formulario de ajustes en el modal */
+.settings-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.settings-form > div {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.settings-form label {
+  font-weight: bold;
+}
+
+/* Estilos para las acciones del modal */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+/* Animación de Fade-in para la tabla */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación de Fade-out para las filas al eliminar */
+.table-row.fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+    /* Hacemos que la fila colapse para una transición más suave */
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 0;
+  }
+}
+
+/* Estilos para el modal de filtros */
+.filter-options {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Añade espacio entre las opciones de filtro */
+}
+
+.filter-options label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Estilos para el área de demostración de formato de texto */
+.format-demo {
+  border: 1px solid var(--border-color);
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  background-color: var(--background-color);
+  transition: all 0.3s ease;
+}
+
+.text-bold {
+  font-weight: bold;
+}
+
+.text-italic {
+  font-style: italic;
+}
+
+.text-underline {
+  text-decoration: underline;
+}
+
+/* Hacemos los estilos más evidentes con colores según el tema */
+.theme-dark .text-bold { color: #90cdf4; } /* Cian claro */
+.theme-dark .text-italic { color: #9ae6b4; } /* Verde claro */
+.theme-dark .text-underline { text-decoration-color: #f6ad55; } /* Naranja */
+
+.theme-light .text-bold { color: #2b6cb0; } /* Azul oscuro */
+.theme-light .text-italic { color: #2f855a; } /* Verde oscuro */
+.theme-light .text-underline { text-decoration-color: #dd6b20; } /* Naranja oscuro */
+
+/* Estilos para el enlace en el texto de demostración */
+.format-demo a {
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.theme-dark .format-demo a { color: #63b3ed; } /* Azul claro */
+.theme-light .format-demo a { color: #3182ce; } /* Azul */
+
+/* Estilos para la lista en el texto de demostración */
+.format-demo ul {
+  margin: 0;
+  padding-left: 20px; /* Añade indentación a la lista */
+  text-align: left;
+}
+
+.format-demo li {
+  margin-bottom: 5px; /* Espacio entre elementos de la lista */
+}
+
+/* Color del texto de la lista según el tema */
+.theme-dark .format-demo ul { color: #e2e8f0; }
+.theme-light .format-demo ul { color: #212529; }

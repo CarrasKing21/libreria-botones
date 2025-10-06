@@ -1,0 +1,62 @@
+.app-container {
+  min-height: 100vh;
+  background-color: #2c2c2c;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.table-wrapper {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 900px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.search-loading {
+  display: flex;
+  gap: 5px;
+}
+
+.search-loading input {
+  padding: 5px;
+}
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.table-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.table-row input {
+  flex-grow: 1;
+  padding: 3px;
+}
+
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 10px;
+  gap: 5px;
+}
