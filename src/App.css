@@ -141,6 +141,13 @@
   color: #000000; /* Texto negro para el tema oscuro */
 }
 
+/* Contenedor para los botones de acción en la fila de la tabla */
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Añade espacio entre los botones */
+}
+
 /* Paginación */
 .pagination {
   margin-top: 10px;
@@ -433,7 +440,6 @@
 
   /* Contenedor para los botones de acción */
   .item-actions {
-    display: flex;
     flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea */
     gap: 10px; /* Espacio entre botones */
     width: 100%;
