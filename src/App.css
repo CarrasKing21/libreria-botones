@@ -133,6 +133,11 @@
   color: var(--text-color); /* Usa la variable de color del tema */
 }
 
+/* Petición específica: cambiar el color del texto del item a negro en tema oscuro */
+.theme-dark .item-name {
+  color: #000000; /* Nota: Esto puede tener bajo contraste con el fondo oscuro. */
+}
+
 /* Paginación */
 .pagination {
   margin-top: 10px;
@@ -389,3 +394,23 @@
 /* Color del texto de la lista según el tema */
 .theme-dark .format-demo ul { color: #e2e8f0; }
 .theme-light .format-demo ul { color: #212529; }
+
+/* --- Media Queries para Responsividad (Móviles) --- */
+@media (max-width: 768px) {
+  /* Ajustes generales para pantallas pequeñas */
+  .app-container {
+    font-size: 14px; /* Reducir ligeramente la fuente base */
+  }
+
+  /* Hacer que los contenedores principales ocupen más ancho */
+  .top-bar,
+  .table-container {
+    width: 95%;
+  }
+
+  /* Apilar los elementos de la barra superior para que no se solapen */
+  .top-bar {
+    flex-direction: column;
+    gap: 15px;
+  }
+}
