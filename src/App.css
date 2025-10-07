@@ -133,11 +133,6 @@
   color: var(--text-color); /* Usa la variable de color del tema */
 }
 
-/* Petición específica: cambiar el color del texto del item a negro en tema oscuro */
-.theme-dark .item-name {
-  color: #000000; /* Nota: Esto puede tener bajo contraste con el fondo oscuro. */
-}
-
 /* Paginación */
 .pagination {
   margin-top: 10px;
