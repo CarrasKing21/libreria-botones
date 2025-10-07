@@ -14,6 +14,10 @@ jobs:
     # Usa la última versión de Ubuntu como sistema operativo para ejecutar los comandos
     runs-on: ubuntu-latest
 
+    # Añade permisos para que la acción pueda escribir en la rama gh-pages
+    permissions:
+      contents: write
+
     steps:
       # 1. Clona tu repositorio en la máquina virtual
       - name: Checkout 🛎️
