@@ -416,4 +416,26 @@
     flex-direction: column;
     gap: 15px;
   }
+
+  /* --- Estilos para la tabla en móvil --- */
+  .table-row {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    align-items: flex-start; /* Alinea todo a la izquierda */
+    padding: 15px; /* Más espacio interno */
+  }
+
+  .item-name {
+    width: 100%; /* Ocupa todo el ancho */
+    font-weight: bold; /* Hace el nombre más prominente */
+    margin-bottom: 15px; /* Espacio entre el nombre y los botones */
+    font-size: 1.1em;
+  }
+
+  /* Contenedor para los botones de acción */
+  .item-actions {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones pasen a la siguiente línea */
+    gap: 10px; /* Espacio entre botones */
+    width: 100%;
+  }
 }

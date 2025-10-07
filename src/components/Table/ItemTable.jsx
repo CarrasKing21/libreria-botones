@@ -278,41 +278,43 @@ const ItemTable = ({ initialItems, initialItemsPerPage, filterByFavourite, filte
               </>
             ) : (
               <>
-                <span className="item-name">{item.name}</span>
-                <EditButton onClick={() => handleEdit(item)} title="Editar nombre del item" />
-                <UploadButton onClick={() => handleUpload(item.id)} title="Subir un archivo para este item" />
-                <DownloadButton onClick={() => handleDownload(item)} disabled={!item.uploadedFile} title="Descargar el archivo asociado" />
-                <FavouriteButton
-                  onClick={() => handleFavourite(item.id)}
-                  active={item.favourite}
-                  title={item.favourite ? "Quitar de favoritos" : "Marcar como favorito"}
-                />
-                <SendButton
-                  onClick={() => handleSend(item.id)}
-                  disabled={sendingItemId === item.id}
-                  title="Enviar este item"
-                >
-                  {sendingItemId === item.id ? (
-                    <><IconLoader className="spin" size={16} style={{ marginRight: '5px' }} /> Enviando...</>
-                  ) : (
-                    "Enviar"
+                <span className="item-name">{item.name}</span>                
+                <div className="item-actions">
+                  <EditButton onClick={() => handleEdit(item)} title="Editar nombre del item" />
+                  <UploadButton onClick={() => handleUpload(item.id)} title="Subir un archivo para este item" />
+                  <DownloadButton onClick={() => handleDownload(item)} disabled={!item.uploadedFile} title="Descargar el archivo asociado" />
+                  <FavouriteButton
+                    onClick={() => handleFavourite(item.id)}
+                    active={item.favourite}
+                    title={item.favourite ? "Quitar de favoritos" : "Marcar como favorito"}
+                  />
+                  <SendButton
+                    onClick={() => handleSend(item.id)}
+                    disabled={sendingItemId === item.id}
+                    title="Enviar este item"
+                  >
+                    {sendingItemId === item.id ? (
+                      <><IconLoader className="spin" size={16} style={{ marginRight: '5px' }} /> Enviando...</>
+                    ) : (
+                      "Enviar"
+                    )}
+                  </SendButton>
+                  <DeleteButton
+                    isConfirming={confirmingDeleteId === item.id}
+                    onClick={() => handleDelete(item.id)}
+                    title="Eliminar este item"
+                  />
+                  {item.uploadedFile && (
+                    <div className="file-info">
+                      <span className="file-name">{item.uploadedFile.name}</span>
+                      <DeleteButton
+                        size="small"
+                        onClick={() => handleRemoveFile(item.id)}
+                        title="Quitar archivo asociado"
+                      />
+                    </div>
                   )}
-                </SendButton>
-                <DeleteButton
-                  isConfirming={confirmingDeleteId === item.id}
-                  onClick={() => handleDelete(item.id)}
-                  title="Eliminar este item"
-                />
-                {item.uploadedFile && (
-                  <div className="file-info">
-                    <span className="file-name">{item.uploadedFile.name}</span>
-                    <DeleteButton
-                      size="small"
-                      onClick={() => handleRemoveFile(item.id)}
-                      title="Quitar archivo asociado"
-                    />
-                  </div>
-                )}
+                </div>
               </>
             )}
           </div>
