@@ -129,11 +129,6 @@
 }
 
 /* Nombre de item */
-.item-name {
-  width: 120px;
-  color: var(--text-color); /* Usa la variable de color del tema */
-}
-
 /* Asegura el contraste correcto en ambos temas */
 .theme-light .item-name {
   color: #000000; /* Texto negro para el tema claro */

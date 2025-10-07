@@ -184,17 +184,13 @@ const ItemTable = ({ initialItems, initialItemsPerPage, filterByFavourite, filte
     setActiveSearchTerm(searchTerm);
     setCurrentPage(1); // Reinicia a la primera página en cada nueva búsqueda
     setMessage(`Resultados para "${searchTerm}"`);
-  };
-  const handleNextPage = () => setCurrentPage((prev) => (prev < totalPages ? prev + 1 : prev));
+  }
 
   // Nuevo manejador para limpiar la búsqueda
   const handleClearSearch = () => {
     setSearchTerm("");
     setActiveSearchTerm("");
     setCurrentPage(1);
-  };
-  const handleLoading = () => {
-    window.location.reload();
   };
   const handlePrevPage = () => setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
 
@@ -235,8 +231,8 @@ const ItemTable = ({ initialItems, initialItemsPerPage, filterByFavourite, filte
           />
           <SearchButton onClick={handleSearchClick} />
           {/* El botón de limpiar solo aparece si hay una búsqueda activa */}
-          {activeSearchTerm && <ClearButton onClick={handleClearSearch} title="Limpiar búsqueda" />}
-          <LoadingButton onClick={handleLoading} />
+          {(searchTerm || activeSearchTerm) && <ClearButton onClick={handleClearSearch} title="Limpiar búsqueda" />}
+          <LoadingButton onClick={handleClearSearch} title="Resetear vista" />
         </div>
       </div>
 
