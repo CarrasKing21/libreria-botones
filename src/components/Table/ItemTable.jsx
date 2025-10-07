@@ -192,6 +192,9 @@ const ItemTable = ({ initialItems, initialItemsPerPage, filterByFavourite, filte
     setActiveSearchTerm("");
     setCurrentPage(1);
   };
+  const handleLoading = () => {
+    window.location.reload();
+  };
   const handlePrevPage = () => setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
 
   // --- EFECTOS ---
@@ -232,7 +235,7 @@ const ItemTable = ({ initialItems, initialItemsPerPage, filterByFavourite, filte
           <SearchButton onClick={handleSearchClick} />
           {/* El botón de limpiar solo aparece si hay una búsqueda activa */}
           {(searchTerm || activeSearchTerm) && <ClearButton onClick={handleClearSearch} title="Limpiar búsqueda" />}
-          <LoadingButton onClick={handleClearSearch} title="Resetear vista" />
+          <LoadingButton onClick={handleLoading} title="Recargar página" />
         </div>
       </div>
 
